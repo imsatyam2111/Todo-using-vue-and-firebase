@@ -16,7 +16,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div id="nav" class="navbar-nav ml-auto">
           <router-link class="pr-3" to="/">Home</router-link>
-          <router-link class="pr-3" to="/about">About</router-link>
+          <router-link class="pr-3" to="/login">Login</router-link>
+          <router-link class="pr-3" to="/register">Register</router-link>
         </div>
       </div>
     </nav>
