@@ -70,9 +70,8 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(user => {
-          alert(`Logged in as ${user.user.email}`);
+          console.log(`Logged in as ${user.user.email}`);
           this.$router.go({ path: "/" });
-          // this.$router.push('/').location.reload();
         })
         .catch(err => alert(err));
 
