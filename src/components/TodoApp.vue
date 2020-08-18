@@ -80,6 +80,6 @@ export default {
 <style scoped>
 #todoApp {
   border: 2.5px solid #bdbbbb;
-  box-shadow: 8px 8px 15px rgb(175, 173, 173) ;
+  box-shadow: 8px 8px 15px rgb(175, 173, 173);
 }
 </style>

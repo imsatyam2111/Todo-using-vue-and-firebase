@@ -26,7 +26,11 @@
           <router-link v-if="!isLoggedIn" class="mt-3 mt-lg-0 pr-3" to="/login">
             Login
           </router-link>
-          <router-link v-if="!isLoggedIn" class="mt-3 mt-lg-0 pr-3" to="/register">
+          <router-link
+            v-if="!isLoggedIn"
+            class="mt-3 mt-lg-0 pr-3"
+            to="/register"
+          >
             Register
           </router-link>
           <button
@@ -73,10 +77,10 @@ export default {
 </script>
 
 <style scoped>
-  @media (max-width: 769px) {
-    .logout {
-      margin-left: auto;
-      width: 25%;
-    }
+@media (max-width: 769px) {
+  .logout {
+    margin-left: auto;
+    width: 25%;
   }
+}
 </style>
