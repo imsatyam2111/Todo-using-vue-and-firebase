@@ -15,11 +15,68 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div id="nav" class="navbar-nav ml-auto">
-          <router-link class="pr-3" to="/">Home</router-link>
-          <router-link class="pr-3" to="/login">Login</router-link>
-          <router-link class="pr-3" to="/register">Register</router-link>
+          <li v-if="isLoggedIn" class="pr-2">
+            <span class="email text-dark">
+              {{ currentUser }}
+            </span>
+          </li>
+          <router-link v-if="isLoggedIn" class="mt-3 mt-lg-0 pr-3" to="/">
+            Dashboard
+          </router-link>
+          <router-link v-if="!isLoggedIn" class="mt-3 mt-lg-0 pr-3" to="/login">
+            Login
+          </router-link>
+          <router-link v-if="!isLoggedIn" class="mt-3 mt-lg-0 pr-3" to="/register">
+            Register
+          </router-link>
+          <button
+            v-if="isLoggedIn"
+            class="logout btn btn-danger mt-3 mt-lg-n2"
+            v-on:click="logout"
+          >
+            Logout
+          </button>
         </div>
       </div>
     </nav>
   </div>
 </template>
+
+<script>
+import firebase from "firebase";
+
+export default {
+  name: "Navigation",
+  data() {
+    return {
+      isLoggedIn: false,
+      currentUser: false
+    };
+  },
+  created() {
+    if (firebase.auth().currentUser) {
+      this.isLoggedIn = true;
+      this.currentUser = firebase.auth().currentUser.email;
+    }
+  },
+  methods: {
+    logout: function() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.go({ path: this.$router.path });
+        });
+    }
+  }
+};
+</script>
+
+<style scoped>
+  @media (max-width: 769px) {
+    .logout {
+      margin-left: auto;
+      width: 25%;
+    }
+  }
+</style>

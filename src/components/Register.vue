@@ -1,16 +1,15 @@
 <template>
   <div id="register">
-    <h3 class="text-center text-white pt-5">register form</h3>
-    <div class="container">
+    <div class="container pt-5">
       <div
         id="register-row"
-        class="row justify-content-center align-items-center"
+        class="row justify-content-center align-items-center mt-5"
       >
         <div id="register-column" class="col-md-6">
           <div id="register-box" class="col-md-12">
-            <form id="register-form" class="form" action="" method="post">
+            <form id="register-form" class="form p-4" action="" method="post">
               <h3 class="text-center text-info">Register</h3>
-              <div class="form-group">
+              <div class="form-group text-left mt-4">
                 <label for="username" class="text-info">Username:</label><br />
                 <input
                   type="email"
@@ -21,7 +20,7 @@
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group text-left">
                 <label for="password" class="text-info">Password:</label><br />
                 <input
                   type="password"
@@ -32,7 +31,7 @@
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group mt-5">
                 <button
                   type="submit"
                   class="btn btn-info w-100"
@@ -73,7 +72,7 @@ export default {
         .then(user => {
           console.log(user)
           alert(`Account created for ${user.user.email}`);
-          this.$router.push("/");
+          this.$router.go({ path: this.$router.path });
         })
         .catch(err => alert(err));
 

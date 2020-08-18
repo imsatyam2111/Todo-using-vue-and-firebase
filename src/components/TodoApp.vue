@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <h1 class="text-dark text-center mt-1 pb-4">A Very Amazing Todo</h1>
+  <div id="todoApp" class="container rounded-lg mt-5 px-5 pt-5 pb-5">
+    <h1 class="text-dark text-center pb-5">A Very Amazing Todo</h1>
+
     <form v-on:submit.prevent="addTodo">
       <div id="form-group" class="mx-auto">
         <input
@@ -76,4 +77,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#todoApp {
+  border: 2.5px solid #bdbbbb;
+  box-shadow: 8px 8px 15px rgb(175, 173, 173) ;
+}
+</style>
